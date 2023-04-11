@@ -4,7 +4,7 @@ $page_active = "";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
-// Vos requêtes SQL
+// Vos requêtes SQL je suis un test 
 
 ?>
 <!DOCTYPE html>
