@@ -21,13 +21,13 @@ if ($formulaire_soumis) {
         // On crée une nouvelle entrée
         $creerArticlecommande = $clientMySQL->prepare(
             'INSERT INTO article(id, auteur_id, titre, chapo, date_creation) VALUES (:id, :auteur_id, :titre, :chapo, :date_creation)'
-             );
+        );
 
-             $id = htmlentities($_POST['id']);
-             $titre = htmlentities($_POST['titre']);
-             $chapo = htmlentities($_POST['chapo']);
-             $date_creation = new DateTimeImmutable();
-             $auteur_id =  htmlentities($_POST['auteur_id']);
+        $id = htmlentities($_POST['id']);
+        $titre = htmlentities($_POST['titre']);
+        $chapo = htmlentities($_POST['chapo']);
+        $date_creation = new DateTimeImmutable();
+        $auteur_id =  htmlentities($_POST['auteur_id']);
 
         $creerArticlecommande->execute([
             'id' => $id,
@@ -36,6 +36,9 @@ if ($formulaire_soumis) {
             'date_creation' => $date_creation->format('Y-m-d H:i:s'),
             'auteur_id' => $auteur_id,
         ]);
+
+        
+        //Message de confirmation
         if($creerArticlecommande->rowCount()>0){
             $creationsuccess="Creation réussite !";
         }
@@ -95,7 +98,7 @@ if ($formulaire_soumis) {
                         </div>
                         <div class="col-span-12">
                             <label for="auteur_id" class="block text-lg font-medium text-gray-700">Auteur</label>
-                            <input type="number" name="auteur-id" id="auteur-id"placeholder="Id de l'utilisateur">
+                            <input type="text" name="auteur_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="auteur_id" required>
                         </div>
                         <div class="mb-3 col-md-6">
                             <button type="submit" class="rounded-md bg-indigo-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-indigo-700">Créer</button>
