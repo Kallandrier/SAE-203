@@ -26,7 +26,7 @@ if ($formulaire_soumis) {
     // On crée un nouvel article
     $majArticlecommande = $clientMySQL->prepare("
         UPDATE article
-        SET titre = :titre, chapo = :chapo, date_creation = :date_creation, auteur_id = :auteur_id, contenu = :contenu
+        SET titre = :titre, chapo = :chapo, image = :image, date_creation = :date_creation, auteur_id = :auteur_id, contenu = :contenu
         WHERE id = :id
     ");
 
@@ -34,6 +34,7 @@ if ($formulaire_soumis) {
         "titre" => $_POST["titre"],
         "chapo" =>  $_POST["chapo"],
         "contenu" =>  $_POST["contenu"],
+        "image" =>  $_POST["image"],
         "date_creation" =>  $_POST["date_creation"],
         "auteur_id" =>  $_POST["auteur_id"],
         "id" => $_POST["id"],
@@ -66,7 +67,7 @@ if ($formulaire_soumis) {
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div class="mb-4 col-md-6">
-            <a href="http://sae203/administration/articles/" class="font-bold rounded-md bg-red-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-red-900 relative right">Retour</a>
+            <a href="http://butsae203/administration/articles/" class="font-bold rounded-md bg-red-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-red-900 relative right">Retour</a>
             </div>
             <?php
                 if (isset($editsuccess)) {
@@ -105,6 +106,14 @@ if ($formulaire_soumis) {
                                     'contenu'
                                 ]; ?>" name="contenu" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="contenu">
                             </div>
+                            <div class="col-span-12">
+                                <label for="image" class="block text-lg font-medium text-gray-700">Lien image</label>
+                                <input type="url" value="<?php echo $article['image']; ?>" name="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="image" required>
+                                <div class="text-sm text-gray-500">
+                                    Mettre l'URL de l'image (chemin absolu)
+                                </div>
+
+                          
                             <div class="col-span-12">
                                 <label for="date_creation" class="block text-lg font-medium text-gray-700">Date de création</label>
                                 <input type="date" value="<?php echo $article[

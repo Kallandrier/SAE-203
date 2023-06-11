@@ -14,9 +14,6 @@
         <li <?php if ($page_active == "medias") {
                 echo "class='active'";
             } ?>><a href="./sur-les-medias.php">SUR LES MÉDIAS</a></li>
-             <li <?php if ($page_active == "article") {
-                echo "class='active'";
-            } ?>><a href="./article.php">ARTICLE</a></li>
         <li <?php if ($page_active == "contact") {
                 echo "class='active'";
             } ?>><a href="./contact.php">CONTACT</a></li>

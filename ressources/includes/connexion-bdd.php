@@ -78,7 +78,7 @@ if ($estEnvLocal) {
 try {
     $nomBDD = getenv('NOM_BDD');
     $serveurBDD = getenv('SERVEUR_BDD');
-    
+
     // On se connecte à notre base de donnée
     $clientMySQL = new PDO(
         "mysql:host=mysql-smose3.alwaysdata.net;dbname=smose3_bd;charset=utf8",

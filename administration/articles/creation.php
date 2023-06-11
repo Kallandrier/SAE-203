@@ -14,18 +14,22 @@ if ($formulaire_soumis) {
             $_POST['id'],
             $_POST['titre'],
             $_POST['chapo'],
+            $_POST['contenu'],
+            $_POST['image'],
             $_POST['date_creation'],
             $_POST['auteur_id']
         )
     ) {
         // On crée une nouvelle entrée
         $creerArticlecommande = $clientMySQL->prepare(
-            'INSERT INTO article(id, auteur_id, titre, chapo, date_creation) VALUES (:id, :auteur_id, :titre, :chapo, :date_creation)'
+            'INSERT INTO article(id, auteur_id, titre, chapo, contenu, image, date_creation) VALUES (:id, :auteur_id, :titre, :chapo, :contenu, :image, :date_creation)'
         );
 
         $id = htmlentities($_POST['id']);
         $titre = htmlentities($_POST['titre']);
         $chapo = htmlentities($_POST['chapo']);
+        $contenu = htmlentities($_POST['contenu']);
+        $image = htmlentities($_POST['image']);
         $date_creation = new DateTimeImmutable();
         $auteur_id =  htmlentities($_POST['auteur_id']);
 
@@ -33,11 +37,11 @@ if ($formulaire_soumis) {
             'id' => $id,
             'titre' => $titre,
             'chapo' => $chapo,
+            'contenu' => $contenu,
+            'image' => $image,
             'date_creation' => $date_creation->format('Y-m-d H:i:s'),
             'auteur_id' => $auteur_id,
         ]);
-
-        
         //Message de confirmation
         if($creerArticlecommande->rowCount()>0){
             $creationsuccess="Creation réussite !";
@@ -92,6 +96,18 @@ if ($formulaire_soumis) {
                             <label for="chapo" class="block text-lg font-medium text-gray-700">Chapô</label>
                             <textarea name="chapo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="chapo" required></textarea>
                         </div>
+
+                        <div class="col-span-12">
+                            <label for="contenu" class="block text-lg font-medium text-gray-700">Contenu</label>
+                            <textarea name="contenu" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="contenu" required></textarea>
+                        </div>
+
+                        <div class="col-span-12">
+                    <label for="image" class="block text-lg font-medium text-gray-700">Image</label>
+                    <input type="text" name="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" id="image">
+                <div class="text-sm text-gray-500">
+                    Mettre l'URL de l'image (chemin absolu)
+
                         <div class="col-span-12">
                             <label for="date_creation" class="block text-lg font-medium text-gray-700">Date de création</label>
                             <input type="date" name="date_creation" id="date_creation" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>

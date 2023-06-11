@@ -47,9 +47,9 @@ $listeArticles = $listeArticlesCommande->fetchAll();
                         elle va recevoir la valeur envoyée dans l'URL. 
                         Vous pourrez récupérer la valeur en php grâce à $_GET["id"]
                      -->
-                    <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
+                    <a href="article.php?id=<?php echo $article["id"]; ?>" class='article '>
                         <figure>
-                            <img src='ressources/images/image-article.png' alt=''>
+                            <img src='<?php echo $article["image"]?>' alt=''>
                         </figure>
                         <section class='textes'>
                             <h1 class='titre'><?php echo $article["titre"]; ?></h1>

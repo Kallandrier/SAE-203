@@ -65,7 +65,7 @@ if ($formulaire_soumis) {
     <main>
         <div class="mx-auto max-w-7xl py-6">
             <div class="mb-4 col-md-6">
-                <a href="http://sae203/administration/auteurs/" class="font-bold rounded-md bg-red-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-red-900 relative right">Retour</a>
+                <a href="http://butsae203/administration/articles/" class="font-bold rounded-md bg-red-600 py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-red-900 relative right">Retour</a>
             </div>
             <?php
                 if (isset($editsuccess)) {
