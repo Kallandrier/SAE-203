@@ -21,7 +21,14 @@ $listeEntreesMenu = [
         "nom" => "Accéder au site",
         "clef" => "site"
     ]
+    ,
+    [
+        "lien" => "connexion.php",
+        "nom" => "Déconnexion",
+        "clef" => "site"
+    ]
 ];
+
 ?>
 
 <nav class="bg-menu-gradient">

@@ -4,9 +4,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$PHP_TARGETED_VERSION = '7.0.0';
+if (!defined('PHP_VERSION_ID')) {
+    $version = explode('.', PHP_VERSION);
 
-if (version_compare(PHP_VERSION, $PHP_TARGETED_VERSION) < 0) {
+    define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
+}
+
+$PHP_TARGETED_VERSION = 70000;
+
+if(PHP_VERSION_ID < $PHP_TARGETED_VERSION) {
     $versionPHP = phpversion();
     die("ERREUR : Version de PHP trop ancienne ({$versionPHP}). Votre version de PHP doit être supérieure ou égale à 7.0.0. Veuillez installer une version plus récente.");
 }
@@ -72,7 +78,7 @@ if ($estEnvLocal) {
 try {
     $nomBDD = getenv('NOM_BDD');
     $serveurBDD = getenv('SERVEUR_BDD');
-    
+
     // On se connecte à notre base de donnée
     $clientMySQL = new PDO(
         "mysql:host={$serveurBDD};dbname={$nomBDD};charset=utf8",

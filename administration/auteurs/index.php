@@ -35,15 +35,19 @@ $URLCreation = "{$racineURL}/creation.php";
                         <tr class="">
                             <th class="font-bold pl-8 py-5 text-left">Id</th>
                             <th class="font-bold pl-8 py-5 text-left">Avatar</th>
-                            <th class="font-bold pl-8 py-5 text-left">Nom</th>
                             <th class="font-bold pl-8 py-5 text-left">Prénom</th>
+                            <th class="font-bold pl-8 py-5 text-left">Nom</th>
                             <th class="font-bold pl-8 py-5 text-left">Twitter</th>
+                            <th class="pl-8 py-5"></th>
                             <th class="pl-8 py-5"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($listeAuteurs as $auteur) {
-                            $lienEdition = "{$racineURL}/edition.php?id={$auteur['id']}"; ?>
+                            $lienEdition = "{$racineURL}/edition.php?id={$auteur['id']}";
+                            $lienSuppression = "{$racineURL}/suppression.php?id={$auteur['id']}"; 
+                            
+                            ?>
                                 <tr class="hover:bg-gray-100 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
                                     <td class="pl-8 p-4 font-bold"><?php echo $auteur[
                                         'id'
@@ -65,6 +69,9 @@ $URLCreation = "{$racineURL}/creation.php";
                                     <td class="pl-8 p-4"><?php echo $auteur['lien_twitter']; ?></td>
                                     <td class="pl-8 p-4">
                                         <a href="<?php echo $lienEdition; ?>" class='font-bold text-blue-600'>Éditer</a>
+                                    </td>
+                                    <td class="pl-8 p-4">
+                                        <a href="<?php echo $lienSuppression; ?>" class='font-bold text-red-600'>Supprimer</a>
                                     </td>
                                 </tr>
                         <?php } ?>

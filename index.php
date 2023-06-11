@@ -20,6 +20,7 @@ $listeArticles = $listeArticlesCommande->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - SAÉ 203</title>
 
+    <link rel="icon" href="ressources/images/favicon-GEC_400x400px.png" type="image/png">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
@@ -48,7 +49,7 @@ $listeArticles = $listeArticlesCommande->fetchAll();
                      -->
                     <a href="article.php?id=<?php echo $article["id"]; ?>" class='article'>
                         <figure>
-                            <img src='ressources/images/image-article.png' alt=''>
+                            <img src='<?php echo $article["image"]?>' alt=''>
                         </figure>
                         <section class='textes'>
                             <h1 class='titre'><?php echo $article["titre"]; ?></h1>

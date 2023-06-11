@@ -46,6 +46,15 @@
   background-color: #ffe700;
 }
 
+.bulle-icone.violet {
+  background-color: #770c79;
+}
+
+.bulle-icone.bleu {
+  background-color: #020b92;
+}
+
+
 .bulle-icone {
   position: absolute;
   top: -46px;
@@ -85,6 +94,15 @@
 .bulle-icone-bordure.jaune {
   background-color: #ee8f00;
 }
+.bulle-icone-bordure.violet {
+  background-color: #8f0794;
+}
+
+.bulle-icone-bordure.bleu {
+  background-color: #2f4ae6;
+}
+
+
 
 .bulle:hover .bulle-icone-bordure {
   transform: translate(-30px, 4px);

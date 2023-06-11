@@ -17,9 +17,12 @@ require_once('./ressources/includes/connexion-bdd.php');
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
     <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
+    <link rel="icon" href="ressources/images/favicon-GEC_400x400px.png" type="image/png">
 
     <link rel="stylesheet" href="ressources/css/global.css">
     <link rel="stylesheet" href="ressources/css/a-propos.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -74,9 +77,9 @@ require_once('./ressources/includes/connexion-bdd.php');
                 </p>
             </section>
 
-            <h1 class="titre-page" id="exemple-sae">Exemples de projets réalisés en SAÉ</h1>
+            <h1 class="titre-page" id="exemple-sae" class="text-yellow-400">Exemples de projets réalisés en SAÉ</h1>
 
-            <section class="liste-projets">
+            <section class="liste-projets" class="transition-all duration-500 ease-in-out transition-cubic-bezier">
                 <?php for ($i = 0; $i < 6; $i++) {
                     // On profite de le fonction "include" pour déporter notre code dans un autre fichier
                     // Et le structurer

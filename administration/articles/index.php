@@ -37,7 +37,7 @@ $URLCreation = "{$racineURL}/creation.php";
     <?php require_once('../ressources/includes/menu-principal.php'); ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 justify-between flex">
-            <h1 class="text-3xl font-bold text-gray-900">Liste A REMPLACER</h1>
+            <h1 class="text-3xl font-bold text-gray-900">Liste articles</h1>
             <a href="<?php echo $URLCreation ?>" class="block font-bold rounded-md bg-indigo-600 py-2 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ajouter un nouvel article</a>
         </div>
     </header>
@@ -50,8 +50,9 @@ $URLCreation = "{$racineURL}/creation.php";
                             <th class="font-bold pl-8 py-5 text-left">Id</th>
                             <th class="font-bold pl-8 py-5 text-left">Titre</th>
                             <th class="font-bold pl-8 py-5 text-left">Chapô</th>
-                            <th class="font-bold pl-8 py-5 text-left">A REMPLACER</th>
+                            <th class="font-bold pl-8 py-5 text-left">Date de création</th>
                             <th class="font-bold pl-8 py-5 text-left">Auteur</th>
+                            <th class="pl-8 py-5"></th>
                             <th class="pl-8 py-5"></th>
                         </tr>
                     </thead>
@@ -59,7 +60,7 @@ $URLCreation = "{$racineURL}/creation.php";
                         <?php
                         foreach ($liste as $element) {
                             $lienEdition = "{$racineURL}/edition.php?id={$element["id"]}";
-
+                            $lienSuppression = "{$racineURL}/suppressionarticle.php?id={$element['id']}";
                             $dateCreation = new DateTime($element["date_creation_article"]);
                             $auteurArticle = $element["auteur"];
                             if (is_null($auteurArticle)) {
@@ -78,6 +79,9 @@ $URLCreation = "{$racineURL}/creation.php";
                                 </td>
                                 <td class="pl-8 p-4">
                                     <a href='<?php echo $lienEdition; ?>' class='font-bold text-blue-600'>Éditer</a>
+                                </td>
+                                <td class="pl-8 p-4">
+                                    <a href="<?php echo $lienSuppression; ?>" class='font-bold text-red-600'>Supprimer</a>
                                 </td>
                             </tr>
                         <?php } ?>
